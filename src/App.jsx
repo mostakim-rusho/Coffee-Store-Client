@@ -1,8 +1,9 @@
 // App.jsx
-import React from "react";
-import { Outlet } from "react-router";
-
+ 
+import { Outlet, useLoaderData } from "react-router";
+ 
 function App() {
+  const coffees = useLoaderData();
   return (
       <>
    <div className="w-10/12 relative mx-auto my-10 overflow-visible h-[700px]">
@@ -55,7 +56,14 @@ function App() {
       </div>
     </div>
 
-
+    <div>
+      <h1>Available Coffees</h1>
+      <ul>
+        {coffees.map(coffee => (
+          <li key={coffee._id}>{coffee.name}</li>
+        ))}
+      </ul>
+    </div>
      
     <Outlet/>
     </>
