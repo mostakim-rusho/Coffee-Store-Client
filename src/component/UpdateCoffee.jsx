@@ -1,10 +1,10 @@
-import React from 'react';
+ 
 
 const UpdateCoffee = () => {
     return (
-        <div>
-            hello
-        </div>
+         <>
+         <h1>hello wolrd</h1>
+         </>
     );
 };
 

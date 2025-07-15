@@ -1,6 +1,7 @@
 // App.jsx
  
 import { Outlet, useLoaderData } from "react-router";
+import CoffeeCard from "./component/CoffeeCard";
  
 function App() {
   const coffees = useLoaderData();
@@ -57,12 +58,10 @@ function App() {
     </div>
 
     <div>
-      <h1>Available Coffees</h1>
-      <ul>
-        {coffees.map(coffee => (
-          <li key={coffee._id}>{coffee.name}</li>
-        ))}
-      </ul>
+     
+  
+        {coffees.map(coffee => <CoffeeCard key={coffee._id} coffee={coffee}></CoffeeCard> )}
+      
     </div>
      
     <Outlet/>
