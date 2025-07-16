@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = ({ coffee,coffees,setCoffees }) => {
   const { _id, name, quantity, supplier, taste, category, details, photo } = coffee;
  const handleDelete = (_id) => {
   const confirmDelete = confirm("Are you sure you want to delete this coffee?");
@@ -14,6 +14,8 @@ const CoffeeCard = ({ coffee }) => {
         if (data.deletedCount > 0) {
           alert('Coffee deleted successfully');
           // এখানে তুমি চাইলে UI থেকে ওই card টি remove করতে পারো
+          const remaining =coffees.filter(cof=>cof._id!==_id);
+          setCoffees(remaining)
         }
       })
       .catch(err => console.error('Delete failed', err));

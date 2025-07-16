@@ -2,9 +2,12 @@
  
 import { Outlet, useLoaderData } from "react-router";
 import CoffeeCard from "./component/CoffeeCard";
+import { useState } from "react";
  
 function App() {
-  const coffees = useLoaderData();
+  const loadedCoffees = useLoaderData();
+  const [coffees , setCoffees] = useState(loadedCoffees);
+
   return (
       <>
    <div className="w-10/12 relative mx-auto my-10 overflow-visible h-[700px]">
@@ -58,11 +61,16 @@ function App() {
     </div>
 
     <div>
-     
-  
-        {coffees.map(coffee => <CoffeeCard key={coffee._id} coffee={coffee}></CoffeeCard> )}
-      
-    </div>
+        {/* ✅ use the updated state here */}
+        {coffees.map(coffee => (
+          <CoffeeCard 
+            key={coffee._id}
+            coffee={coffee}
+            coffees={coffees}
+            setCoffees={setCoffees}
+          />
+        ))}
+      </div>
      
     <Outlet/>
     </>
