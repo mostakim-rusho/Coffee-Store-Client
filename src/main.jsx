@@ -10,6 +10,7 @@ import UpdateCoffee from "./component/UpdateCoffee.jsx";
 import SignIn from "./component/SignIn.jsx";
 import SignUp from "./component/SignUp.jsx";
 import AuthProvider from "./provider/AuthProvider.jsx";
+import Users from "./component/Users.jsx";
 
 // Define your routes with loaders
 const router = createBrowserRouter([
@@ -39,12 +40,18 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <SignUp></SignUp>,
   },
+  {
+    path: "/users",
+    element:  <Users></Users>,
+    loader: () => fetch("http://localhost:5000/users"),
+  
+  }
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}  hydrateFallbackElement={<p>Loading...</p>}  />
     </AuthProvider>
   </StrictMode>
 );
