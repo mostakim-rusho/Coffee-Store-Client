@@ -17,7 +17,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    loader: () => fetch("http://localhost:5000/coffee"),
+    loader: () => fetch("https://coffee-store-server-liard-nine.vercel.app/coffee"),
     // 👇 This line is important
     fallbackElement: <p>Loading...</p>,
   },
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
   {
     path: "/updatecoffee/:id",
     element: <UpdateCoffee />,
-    loader: ({ params }) => fetch(`http://localhost:5000/coffee/${params.id}`),
+    loader: ({ params }) => fetch(`https://coffee-store-server-liard-nine.vercel.app/coffee/${params.id}`),
     // 👇 This line is important
     fallbackElement: <p>Loading...</p>,
   },
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
   {
     path: "/users",
     element:  <Users></Users>,
-    loader: () => fetch("http://localhost:5000/users"),
+    loader: () => fetch("https://coffee-store-server-liard-nine.vercel.app/users"),
   
   }
 ]);
