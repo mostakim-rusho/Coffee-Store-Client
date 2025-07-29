@@ -16,7 +16,7 @@ const {createUser} =useContext(AuthContext);
       console.log(result.user)
       const user = {email};
         fetch("https://coffee-store-server-liard-nine.vercel.app/user",{
-        method:"POST",
+        method:"POSTs",
         headers:{
             'content-type':'application/json'
         },
